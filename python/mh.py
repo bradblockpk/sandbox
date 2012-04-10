@@ -1,5 +1,6 @@
 ### Metropolis-Hastings sampler with self-tuning proposal distribution
 ### Brad Block
+### brad@priorknowledge.com
 ### 4/9/2012
 
 from collections import deque
@@ -49,7 +50,7 @@ for i in xrange(1, total_sampler_steps):
     # obtain next candidate sample and evaluate acceptance
     (accepted, z) = sample(z)
     # adjust proposal std. deviation if still in burnin phase
-    # otherwise adjust proposal std. deviation if still in burnin phase
+    # otherwise record sample after sufficient steps
     if i <= burnin_steps:
         acceptance_history.append(accepted)
         acceptance_rate = float(sum(acceptance_history)) / acceptance_history_sample_count
